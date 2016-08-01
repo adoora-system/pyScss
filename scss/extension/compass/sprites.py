@@ -497,9 +497,9 @@ def sprite(map, sprite, offset_x=None, offset_y=None, cache_buster=True):
         x = Number(offset_x or 0)
         y = Number(offset_y or 0)
         if not x.value or (x.value <= -1 or x.value >= 1) and not x.is_simple_unit('%'):
-            x -= Number(sprite[2])
+            x -= Number(sprite[2], 'px')
         if not y.value or (y.value <= -1 or y.value >= 1) and not y.is_simple_unit('%'):
-            y -= Number(sprite[3])
+            y -= Number(sprite[3], 'px')
         url = "url(%s)" % escape(url)
         return List([String.unquoted(url), x, y])
     return List([Number(0), Number(0)])
